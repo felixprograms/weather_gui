@@ -18,6 +18,7 @@ while True:
     city_woeid = str(result1.json()[0]['woeid'])
 
     result2 = requests.get('https://www.metaweather.com/api/location/' + city_woeid)
-    city_temp = str(round(result2.json()['consolidated_weather'][0]['the_temp']), 2)
+    rounded_temp = round(result2.json()['consolidated_weather'][0]['the_temp'], 2)
+    city_temp = str(rounded_temp)
 
     window['weather_display'].update('The weather in' + ' ' + values['city'] + ' is ' +  city_temp + ' degree celsius.')
